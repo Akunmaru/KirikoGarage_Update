@@ -17,7 +17,7 @@ function DataTable() {
     let [ open, setOpen] = useState(false);
 
     const {vehicleData, getData} = useGetData()
-    const [ selectionModel, setSelectionModel ] = useState<any>([])
+    const [ selectionModel, setSelectionModel ] = useState<string[]>([])
 
     const handleOpen = () => {
         setOpen(true)
@@ -28,7 +28,7 @@ function DataTable() {
     }
 
     const deleteData = () => {
-        server_calls.delete(selectionModel)
+        server_calls.delete(selectionModel[0])
         getData();
         console.log(`Selection Model: ${selectionModel}`)
         setTimeout( () => { window.location.reload() }, 500)
@@ -55,7 +55,7 @@ function DataTable() {
             style={{ height: 400, width: '100%'}}>
                 <h2 className="p-3 bg-red-500 my-2 text-white">My Garage</h2>
                 <DataGrid rows={vehicleData} columns={columns} rowsPerPageOptions={[5]} 
-                checkboxSelection={true} onRowSelectionModelChange={ (item: any) => {
+                checkboxSelection={true} onSelectionModelChange={ (item: any) => {
                     setSelectionModel(item)
                 }}/>
             </div>

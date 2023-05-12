@@ -6,7 +6,7 @@ const rootSlice = createSlice({
         make: "Make",
         model: "Model",
         year: "Year",
-        address: "Address"
+        color: "color"
 
     },
     reducers: {

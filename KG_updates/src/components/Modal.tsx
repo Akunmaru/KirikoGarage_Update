@@ -2,7 +2,7 @@ import React from 'react'
 import VehicleForm from './VehicleForm'
 
 type Props = {
-    id?: string;
+    id?: string[];
     open: boolean;
     onClose: () => void;
 }
